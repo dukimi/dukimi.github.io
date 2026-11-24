@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김동은 | Code Your Journey — 개인 포트폴리오</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-soft: #f5f8ff;
+      --bg-card: #ffffff;
+      --brand-blue: #1e5eff;
+      --brand-indigo: #3b49df;
+      --brand-cyan: #00b8d9;
+      --brand-navy: #0f172a;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --text-muted: #9ca3af;
+      --border-light: #e5e7eb;
+      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 12px 32px rgba(30, 94, 255, 0.10);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .header-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--brand-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+      color: #fff;
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .gnb {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .gnb a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      transition: color 0.2s;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .gnb a:hover,
+    .gnb a.active {
+      color: var(--brand-blue);
+    }
+
+    .gnb a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--brand-blue);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .region-tag {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+      background: #eef4ff;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .btn-header {
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--brand-navy);
+      color: #fff;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-header:hover {
+      background: var(--brand-blue);
+      transform: translateY(-1px);
+    }
+
+    /* ================= HERO BANNER ================= */
+    .page-header {
+      padding: 48px 0 24px;
+      text-align: center;
+    }
+
+    .page-eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      background: #eef4ff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .page-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--brand-navy);
+      letter-spacing: -0.03em;
+    }
+
+    .story-banner {
+      margin-top: 24px;
+      border-radius: 28px;
+      padding: 64px 48px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 52%, #1e5eff 100%);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-banner::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 184, 217, 0.35), transparent 70%);
+      pointer-events: none;
+    }
+
+    .banner-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .banner-desc {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.88);
+      margin-bottom: 16px;
+      line-height: 1.75;
+    }
+
+    .banner-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 28px;
+    }
+
+    .banner-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: #ffffff;
+      color: var(--brand-navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* ================= SECTION COMMON ================= */
+    section {
+      padding: 76px 0;
+    }
+
+    .sec-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .sec-header h2,
+    .sec-header h3 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--brand-navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .sec-title-sub {
+      display: block;
+      font-size: 1.02rem;
+      color: var(--text-sub);
+    }
+
+    /* ================= INTRO / KEYWORDS (Codyssey 3+1 Box) ================= */
+    .section-intro {
+      background: var(--bg-soft);
+      margin-top: 64px;
+    }
+
+    .box-world {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .keyword-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .keyword {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .keyword:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-blue);
+    }
+
+    .key-tit strong {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--brand-blue);
+      margin-bottom: 4px;
+    }
+
+    .key-tit span {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      background: #f3f4f6;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    .key-txt {
+      font-size: 0.94rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .keyword-main {
+      background: linear-gradient(145deg, var(--brand-blue), var(--brand-indigo));
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .keyword-main strong {
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .keyword-main span {
+      font-size: 0.96rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.6;
+    }
+
+    /* ================= PROFILE / BRAND ================= */
+    .box-brand {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-emblem {
+      height: 200px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #eef4ff 0%, #e0e7ff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #dbeafe;
+    }
+
+    .brand-emblem .emblem-code {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--brand-blue);
+      letter-spacing: -0.03em;
+    }
+
+    .brand-emblem .emblem-sub {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin-top: 6px;
+    }
+
+    .brand-dl {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      row-gap: 16px;
+      column-gap: 20px;
+      align-items: baseline;
+    }
+
+    .brand-dl dt {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--brand-blue);
+      background: #eef4ff;
+      padding: 4px 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .brand-dl dd {
+      font-size: 1rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* ================= IDENTITY (TECH STACK & VALUES) ================= */
+    .section-identity {
+      background: var(--bg-soft);
+    }
+
+    .identity-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .identity-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+
+    .identity-list li:hover {
+      transform: translateY(-4px);
+    }
+
+    .id-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 16px;
+      background: #eef4ff;
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .identity-list li strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin-bottom: 6px;
+    }
+
+    .identity-list li span {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    /* ================= PROJECTS MASONRY / CARD GRID ================= */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border-light);
+      background: #fff;
+      color: var(--text-sub);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--brand-blue);
+      color: #fff;
+      border-color: var(--brand-blue);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .story-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-image-box {
+      position: relative;
+      height: 180px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-image-box.blue-grad {
+      background: linear-gradient(135deg, #1e5eff, #38bdf8);
+    }
+
+    .card-image-box.indigo-grad {
+      background: linear-gradient(135deg, #312e81, #6366f1);
+    }
+
+    .card-image-box.emerald-grad {
+      background: linear-gradient(135deg, #065f46, #10b981);
+    }
+
+    .num-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .card-visual-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .card-text-box {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-text-box h4 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin-bottom: 8px;
+    }
+
+    .card-text-box p {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+      background: #eef4ff;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    /* ================= FLOATING BANNER ================= */
+    .floating-banner {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 999;
+    }
+
+    .banner-btn-apply {
+      background: var(--brand-blue);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(30, 94, 255, 0.35);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .banner-btn-apply:hover {
+      background: var(--brand-indigo);
+      transform: translateY(-2px);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 56px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .addr-list li {
+      margin-bottom: 6px;
+      color: #94a3b8;
+    }
+
+    .addr-list .label {
+      display: inline-block;
+      min-width: 84px;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .copyright {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f8fafc;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+
+    .footer-links a:hover {
+      background: var(--brand-blue);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .box-world {
+        grid-template-columns: 1fr;
+      }
+      .keyword-list {
+        grid-template-columns: 1fr;
+      }
+      .box-brand {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .brand-dl {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .identity-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .gnb {
+        display: none;
+      }
+      .story-banner {
+        padding: 44px 24px;
+      }
+      .banner-title {
+        font-size: 2rem;
+      }
+      .identity-list,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-wrap">
+      <a href="#" class="logo">
+        <span class="logo-badge">C</span>
+        <span>DONGEUN.DEV</span>
+      </a>
+
+      <nav class="gnb">
+        <a href="#vision" class="active">소개 &amp; 비전</a>
+        <a href="#profile">프로필</a>
+        <a href="#identity">핵심 역량</a>
+        <a href="#projects">프로젝트</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="region-tag">경남 · 서울</span>
+        <a href="#contact" class="btn-header">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <div class="container">
+      <div class="page-header">
+        <span class="page-eyebrow">UNDERGRADUATE PORTFOLIO</span>
+        <h1 class="page-title">나만의 코딩 항해기</h1>
+      </div>
+
+      <section class="story-banner" style="padding: 64px 48px;">
+        <div class="banner-inner">
+          <p class="banner-desc">
+            불편함을 자동화하는 작은 도구에서 시작해, 동료와 함께 문제를 해결하는 소프트웨어까지.<br />
+            기본 원리를 파고들며 나만의 항로를 개척하는 컴퓨터공학부 학부생 김동은입니다.
+          </p>
+          <h2 class="banner-title">'Code Your Journey'</h2>
+          <div class="banner-cta-group">
+            <a href="#projects" class="btn-primary">프로젝트 둘러보기 →</a>
+            <a href="https://github.com" target="_blank" rel="noreferrer" class="btn-secondary">GitHub 바로가기</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SECTION 1: VISION / KEYWORDS (Codyssey Exploring Together 스타일) -->
+    <section id="vision" class="section-intro">
+      <div class="container">
+        <div class="sec-header">
+          <h2>Exploring Together</h2>
+          <span class="sec-title-sub">탄탄한 CS 기초 위에 실용적인 도구를 설계하며 지속 가능한 성장을 이어갑니다.</span>
+        </div>
+
+        <div class="box-world">
+          <ul class="keyword-list">
+            <li class="keyword">
+              <div class="key-tit">
+                <strong>Challenging</strong>
+                <span>원리 중심의 도전</span>
+              </div>
+              <p class="key-txt">
+                추상화된 결과만 쓰지 않고 메모리 구조, 포인터, 네트워크 프로토콜 등 동작 원리를 끝까지 파고듭니다.
+              </p>
+            </li>
+            <li class="keyword">
+              <div class="key-tit">
+                <strong>Growing</strong>
+                <span>꾸준한 기록과 성장</span>
+              </div>
+              <p class="key-txt">
+                전공 수업과 개인 개발에서 마주한 시행착오를 정리하고, 더 나은 워크플로우를 고민하며 매일 성장합니다.
+              </p>
+            </li>
+            <li class="keyword">
+              <div class="key-tit">
+                <strong>Discovering</strong>
+                <span>불편함 속 문제 발견</span>
+              </div>
+              <p class="key-txt">
+                일상과 개발 환경의 반복 작업을 포착해 확장 프로그램과 자동화 툴로 직접 해결책을 만들어 냅니다.
+              </p>
+            </li>
+          </ul>
+
+          <div class="keyword-main">
+            <strong>Building <br />Useful Tools</strong>
+            <span>배움을 코드로 증명하고,<br />가치를 나누는 개발자</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PROFILE / BRAND -->
+    <section id="profile">
+      <div class="container">
+        <div class="sec-header">
+          <h3>PROFILE</h3>
+          <span class="sec-title-sub">학업과 실전 개발을 병행하며 쌓아온 기본 정보입니다.</span>
+        </div>
+
+        <div class="box-brand">
+          <div class="brand-emblem">
+            <div class="emblem-code">&lt;Dev /&gt;</div>
+            <div class="emblem-sub">Computer Science</div>
+          </div>
+
+          <dl class="brand-dl">
+            <dt>이름 / 소속</dt>
+            <dd>김동은 · 경남대학교 컴퓨터공학부 (교직이수 과정)</dd>
+
+            <dt>슬로건</dt>
+            <dd>Code Your Journey — 직접 부딪히며 나만의 해답을 코딩하다</dd>
+
+            <dt>학업 성과</dt>
+            <dd>2026학년도 1학기 전 과목 A+ (성적 우수 전액 장학금 수혜)</dd>
+
+            <dt>관심 분야</dt>
+            <dd>시스템/애플리케이션 개발, 개발자 생산성 도구(IDE 확장), 네트워크·게임 서버</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: IDENTITY / TECH STACK -->
+    <section id="identity" class="section-identity">
+      <div class="container">
+        <div class="sec-header">
+          <h3>TECH &amp; IDENTITY</h3>
+          <span class="sec-title-sub">주로 다루는 기술 스택과 개발 스타일입니다.</span>
+        </div>
+
+        <ul class="identity-list">
+          <li>
+            <div class="id-icon">C</div>
+            <strong>C / C++</strong>
+            <span>포인터·동적 메모리 제어 및 자료구조·알고리즘 구현</span>
+          </li>
+          <li>
+            <div class="id-icon">C#</div>
+            <strong>C# / .NET / Unity</strong>
+            <span>VSIX 확장 프로그램, 데스크톱 유틸리티, 2D 멀티플레이 게임</span>
+          </li>
+          <li>
+            <div class="id-icon">JV</div>
+            <strong>Java / Server</strong>
+            <span>마인크래프트 Paper·BungeeCord 커스텀 플러그인 개발</span>
+          </li>
+          <li>
+            <div class="id-icon">WB</div>
+            <strong>HTML / CSS / JS</strong>
+            <span>반응형 웹 UI 설계 및 인터랙티브 웹 도구 제작</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PROJECTS (Codyssey Story Cards 스타일) -->
+    <section id="projects">
+      <div class="container">
+        <div class="sec-header">
+          <h3>PROJECTS</h3>
+          <span class="sec-title-sub">직접 기획하고 구현한 주요 프로젝트 아카이브입니다.</span>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">전체보기</button>
+          <button class="filter-btn" data-filter="tool">개발자 도구</button>
+          <button class="filter-btn" data-filter="game">게임 · 서버</button>
+          <button class="filter-btn" data-filter="web">웹 · 알고리즘</button>
+        </div>
+
+        <div class="project-grid">
+          <article class="story-card" data-category="tool">
+            <div class="card-image-box blue-grad">
+              <span class="num-badge">#01</span>
+              <div class="card-visual-title">AutoSingleRun (VSIX)</div>
+            </div>
+            <div class="card-text-box">
+              <div>
+                <h4>Visual Studio 단일 파일 실행 확장</h4>
+                <p>하나의 프로젝트 내 여러 main 함수가 포함된 C/C++ 파일을 클릭 한 번으로 개별 컴파일·실행하는 VSIX 확장 도구입니다.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">#C#</span>
+                <span class="tag">#VSIX</span>
+                <span class="tag">#VisualStudio</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-category="game">
+            <div class="card-image-box indigo-grad">
+              <span class="num-badge">#02</span>
+              <div class="card-visual-title">2D 수식 카드 배틀 게임</div>
+            </div>
+            <div class="card-text-box">
+              <div>
+                <h4>Unity 6 기반 멀티플레이 전략 게임</h4>
+                <p>숫자와 연산자 카드, 전술 스킬 카드를 조합해 상대를 공략하는 실시간 온라인 대전 게임입니다.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">#Unity6</span>
+                <span class="tag">#C#</span>
+                <span class="tag">#PhotonPUN2</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-category="tool">
+            <div class="card-image-box">
+              <span class="num-badge">#03</span>
+              <div class="card-visual-title">Modpack Auto Installer</div>
+            </div>
+            <div class="card-text-box">
+              <div>
+                <h4>원클릭 모드팩 자동 설치기</h4>
+                <p>Java 21 런타임 자동 감지 및 진행률 UI를 제공해 비전공자 친구들도 쉽게 서버에 접속할 수 있도록 만든 인스톨러입니다.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">#C#</span>
+                <span class="tag">#WinForms</span>
+                <span class="tag">#Automation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-category="game">
+            <div class="card-image-box emerald-grad">
+              <span class="num-badge">#04</span>
+              <div class="card-visual-title">GacServer Network</div>
+            </div>
+            <div class="card-text-box">
+              <div>
+                <h4>커스텀 서버 및 프록시 플러그인</h4>
+                <p>BungeeCord 프록시 연동, 미니게임 및 관리 기능을 직접 설계하고 네트워크 터널링으로 안정적으로 운영한 프로젝트입니다.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">#Java</span>
+                <span class="tag">#PaperAPI</span>
+                <span class="tag">#Network</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-category="web">
+            <div class="card-image-box blue-grad">
+              <span class="num-badge">#05</span>
+              <div class="card-visual-title">C 성적 산출 시스템</div>
+            </div>
+            <div class="card-text-box">
+              <div>
+                <h4>구조체 기반 상대평가 관리 프로그램</h4>
+                <p>구조체 배열과 정렬 알고리즘을 활용해 학생별 점수를 집계하고 학점 비율에 따라 등급을 산출하는 콘솔 애플리케이션입니다.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">#C</span>
+                <span class="tag">#DataStructure</span>
+                <span class="tag">#Algorithm</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card" data-category="web">
+            <div class="card-image-box indigo-grad">
+              <span class="num-badge">#06</span>
+              <div class="card-visual-title">적응형 영단어 암기 웹앱</div>
+            </div>
+            <div class="card-text-box">
+              <div>
+                <h4>오답 패턴 기반 학습 웹 서비스</h4>
+                <p>사용자의 정답률과 복습 주기를 분석해 취약한 단어를 우선 노출하는 개인 학습용 웹 애플리케이션입니다.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">#HTML/CSS</span>
+                <span class="tag">#JavaScript</span>
+                <span class="tag">#UI/UX</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING CTA BUTTON -->
+  <div class="floating-banner">
+    <button type="button" class="banner-btn-apply" onclick="location.href='#contact'">
+      협업 · 문의하기
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-wrap">
+      <div>
+        <a href="#" class="footer-logo">DONGEUN.DEV</a>
+        <ul class="addr-list">
+          <li><span class="label">소속</span><span>경남대학교 컴퓨터공학부</span></li>
+          <li><span class="label">활동 거점</span><span>경상남도 창원시 / 서울특별시</span></li>
+          <li><span class="label">이메일</span><span><a href="mailto:example@univ.ac.kr">example@univ.ac.kr</a></span></li>
+        </ul>
+        <p class="copyright">Copyright © 2026 Kim Dongeun. Inspired by Codyssey Theme.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#vision">Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 프로젝트 카테고리 필터링
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.story-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 스크롤 시 상단 네비게이션 활성화 표시
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.gnb a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
